@@ -13,5 +13,5 @@ A rural doctor wants to write notes on their laptop without internet connection,
 ### Features
 - Git based sync
 - Notes, documents, and media stored as files
-- Local editing
+- Local editing through persistent NFS share
 - Server-client model to enforce access control and logging
