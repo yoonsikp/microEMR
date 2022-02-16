@@ -1,0 +1,6 @@
+- name: Add 'micro_emr' user with a nologin shell, and an invalid password
+  user:
+    name: micro_emr
+    shell: /sbin/nologin
+    password: !
+  become: yes

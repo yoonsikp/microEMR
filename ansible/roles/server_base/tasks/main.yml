@@ -1,0 +1,73 @@
+- name: Upgrade all packages to the latest version
+  apt:
+    name: "*"
+    state: latest
+    update_cache: yes
+  become: yes
+
+- name: Install nginx, samba, git, wireguard
+  apt:
+    pkg:
+      - nginx
+      - samba
+      - git
+      - git-lfs
+      - wireguard
+      - libpam-systemd
+      - dbus
+      - libpq-dev
+      - python3-pip
+      - ssl-cert
+  become: yes
+
+- name: Make sure nmbd Service is stopped
+  systemd:
+    state: stopped
+    name: nginx
+  become: yes
+
+- name: Disable nmbd autostart
+  systemd:
+    name: nginx
+    enabled: no
+  become: yes
+
+- name: Create clean SSH reboot service
+  command: cp /usr/share/doc/openssh-client/examples/ssh-session-cleanup.service /etc/systemd/system/
+  args:
+    creates: /etc/systemd/system/ssh-session-cleanup.service
+  become: yes
+
+- name: Enable SSH reboot service
+  systemd:
+    name: ssh-session-cleanup
+    enabled: yes
+  become: yes
+
+- name: just force systemd to reread configs (2.4 and above)
+  systemd:
+    daemon_reload: yes
+  become: yes
+
+- name: Make sure SSH reboot service is running
+  systemd:
+    state: started
+    name: ssh-session-cleanup
+  become: yes
+
+- name: Enable SSH through firewall
+  ufw:
+    rule: allow
+    name: OpenSSH
+  become: yes
+
+- name: Enable UFW firewall
+  ufw:
+    state: enabled
+  become: yes
+
+- name: Create micro_emr user with home directory
+  include_tasks: create_user.yml
+
+- name: Create micro_emr_users group
+  include_tasks: create_group.yml

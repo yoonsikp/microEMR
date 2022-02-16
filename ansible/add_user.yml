@@ -1,0 +1,13 @@
+---
+
+- name: Add new microEMR user
+  hosts: local_vm
+  gather_facts: no
+  tasks:
+    - name: create new user
+      user:
+        name: "{{ new_username }}"
+        group: micro_emr_users
+        shell: /sbin/nologin
+        password: !
+      become: yes

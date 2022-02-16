@@ -1,0 +1,2 @@
+local_vm ansible_port=2222 ansible_host=localhost
+prod_server ansible_port=2222 ansible_host=prod.example.com

@@ -15,3 +15,6 @@ A rural doctor wants to write notes on their laptop without internet connection,
 - Notes, documents, and media stored as files
 - Local editing through persistent NFS share
 - Server-client model to enforce access control and logging
+
+### quick notes
+add_user.yml before adduser.sh before chpasswd.sh

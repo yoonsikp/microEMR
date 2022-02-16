@@ -1,0 +1,2 @@
+- name: Configure safe samba
+  include_tasks: samba.yml

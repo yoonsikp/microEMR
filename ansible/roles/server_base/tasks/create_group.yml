@@ -1,0 +1,5 @@
+- name: Ensure group "micro_emr_users" exists
+  group:
+    name: micro_emr_users
+    state: present
+  become: yes
