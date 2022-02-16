@@ -66,8 +66,8 @@
     state: enabled
   become: yes
 
-- name: Create micro_emr user with home directory
-  include_tasks: create_user.yml
-
 - name: Create micro_emr_users group
   include_tasks: create_group.yml
+
+- name: Create micro_emr user with home directory
+  include_tasks: create_user.yml
