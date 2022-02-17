@@ -1,6 +1,6 @@
 ---
 
-- name: Add new microEMR user
+- name: Add new microEMR user without home folder
   hosts: local_vm
   gather_facts: no
   tasks:
@@ -10,4 +10,5 @@
         group: micro_emr_users
         shell: /sbin/nologin
         password: !
+        create_home: no
       become: yes
