@@ -29,20 +29,23 @@
 
 [scratch]
 	comment = MicroEMR Share
-	path = /tmp/%u
+	path = /mnt/micro_emr/ephemeral/%u/
 	browseable = yes
 	writeable = yes
 	
 # log all file access by username
 	vfs objects = full_audit
 	full_audit:prefix = %u
-	full_audit:success = open create_file linkat renameat unlinkat
+	full_audit:success = open create_file linkat renameat
 
 # access control to only microEMR users
 	valid users = @micro_emr_users
 
 # disable symlinks (extra security)
 	follow symlinks = no
+
+# force files and directories to be made with micro_emr user
+	force user = micro_emr
 
 # force files and directories to be made with micro_emr_users group
 	force group = micro_emr_users
