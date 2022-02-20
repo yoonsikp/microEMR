@@ -1,0 +1,14 @@
+# Identification and Contact Information
+# If info unavailable, document reason with a #comment
+# Wrap phone numbers or text containing commas in "quotes"
+---
+first_name: 
+middle_name: 
+last_name: 
+gender: 
+date_of_birth: #ISO8601 basic, e.g. 20040219
+identifier: #e.g. {phin: 12345, mhn: 1234}
+phone: {home: "", mobile: ""} #e.g. "+12045096995"
+emergency_contact: {name: , relationship: , phone: ""}
+address: {line1: , line2: , city: , region: , postal: , country: }
+email: 

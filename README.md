@@ -17,4 +17,6 @@ A rural doctor wants to write notes on their laptop without internet connection,
 - Server-client model to enforce access control and logging
 
 ### quick notes
+Populate secrets/__ansible_ssh_private.key
+
 add_user.yml before adduser.sh before chpasswd.sh

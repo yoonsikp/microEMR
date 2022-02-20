@@ -1,0 +1,46 @@
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Thumbnail cache files
+._*
+Thumbs.db
+ehthumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+.TemporaryItems
+.fseventsd
+.DocumentRevisions-V100
+
+# Windows shortcuts
+*.lnk
+
+# Office
+*.tmp
+
+# Word temporary
+~$*.doc*
+
+# Word Auto Backup File
+Backup of *.doc*
+
+# Excel temporary
+~$*.xls*
+
+# Excel Backup File
+*.xlk
+
+# PowerPoint temporary
+~$*.ppt*
+
+# Visio autosave temporary files
+*.~vsd*
+
+# VSCode
+.vscode/*
