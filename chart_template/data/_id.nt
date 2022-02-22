@@ -1,0 +1,27 @@
+# Identification and Contact Information
+# If info unavailable, document reason with a #comment
+# Use ISO8601. Format phone numbers: +12045096995
+
+full_name: 
+# e.g. date_of_birth: 2003-02-19
+date_of_birth: 
+gender: 
+identifiers:
+# e.g.  {phin: 12345, mhn: 1234}
+  {}
+phone:
+  home: 
+  mobile: 
+  work: 
+emergency_contact:
+  name: 
+  relationship: 
+  phone: 
+email: 
+address:
+  line1: 
+  line2: 
+  city: 
+  region: 
+  postal: 
+  country: 

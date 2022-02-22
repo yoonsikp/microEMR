@@ -1,7 +1,6 @@
 # Patient Clinical Summary
 # Document should be updated regularly
-# Wrap text containing commas in "quotes"
----
+
 active_issues: 
 #  - diabetes type 2
 #  - hypertension
@@ -12,6 +11,6 @@ past_surg_hx:
 allergy_sens:
 #  - codeine (itching)
 medications:
-#  - "5mg amlodipine OD 30 days, 3 refills"
+#  - 5mg amlodipine OD 30 days, 3 refills
 social_hx: 
 family_hx: 
