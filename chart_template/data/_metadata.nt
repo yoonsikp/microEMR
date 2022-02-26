@@ -1,0 +1,21 @@
+# Metadata and Tagging
+# Reverse chronological preferred, '2022' before '2021'
+
+_id.nt:
+  - uemr:required
+_metadata.nt:
+  - uemr:required
+_summary.nt:
+  - pinned_to_top
+
+# 20121223_vitals.md:
+#   - uemr:observable
+#   - Dr. John Doe please review!
+# 20060129_example_note.md:
+#   - uemr:document
+#   - document_type:consult
+#   - service:psychiatry
+# 20010716_cxr:
+#   - uemr:raw
+#   - location:BigCityHospital
+#   - other_emr_visit_id:f6ca9736
