@@ -25,4 +25,4 @@ add_user.yml before adduser.sh before chpasswd.sh
 
 ### Warning
 
-Use of leemr in standalone mode without an upstream server for access control and logging may not be compliant with your regional healthcare regulations. Furthermore, this may interfere with inter-professional health and collaborative efforts.
+Use of µChart in standalone mode without an upstream server for access control and logging may not be compliant with your regional healthcare regulations. Furthermore, this may interfere with inter-professional health and collaborative efforts.
