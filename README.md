@@ -1,4 +1,4 @@
-# microEMR
+# µChart
 No more shitty EMR pls
 
 <img src="https://imgs.xkcd.com/comics/standards.png">
