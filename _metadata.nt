@@ -1,4 +1,5 @@
 # Metadata and Tagging
+# Special Tags: 'uemr:document', 'uemr:obs', 'uemr:raw', 'uemr:required'
 # Reverse chronological preferred, '2022' before '2021'
 
 _id.nt:
@@ -10,10 +11,10 @@ _summary.nt:
 
 # 20121223_vitals.md:
 #   - uemr:observable
-#   - Dr. John Doe please review!
+#   - please review!
 # 20060129_example_note.md:
 #   - uemr:document
-#   - document_type:consult
+#   - document_category:consult
 #   - service:psychiatry
 # 20010716_cxr:
 #   - uemr:raw
