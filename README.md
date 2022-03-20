@@ -1,4 +1,4 @@
-# microEMR
+# µChart
 No more shitty EMR pls
 
 <img src="https://imgs.xkcd.com/comics/standards.png">
@@ -32,7 +32,7 @@ sync between these two (git pull + git push) w/ security in mind.
 
 ### Warning
 
-Use of microEMR in standalone mode without an upstream server for access control and logging may not be compliant with your regional healthcare regulations. Furthermore, this may interfere with inter-professional health and collaborative efforts.
+Use of uChart in standalone mode without an upstream server for access control and logging may not be compliant with your regional healthcare regulations. Furthermore, this may interfere with inter-professional health and collaborative efforts.
 
 
 
