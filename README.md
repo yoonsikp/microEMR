@@ -23,6 +23,21 @@ add_user.yml before adduser.sh before chpasswd.sh
 
 --signoff for legal reason
 
+### 
+
+golden (master)      --> (git clone)    scratch (personal_branch)
+
+sync between these two (git pull + git push) w/ security in mind.
+
+
 ### Warning
 
-Use of leemr in standalone mode without an upstream server for access control and logging may not be compliant with your regional healthcare regulations. Furthermore, this may interfere with inter-professional health and collaborative efforts.
+Use of microEMR in standalone mode without an upstream server for access control and logging may not be compliant with your regional healthcare regulations. Furthermore, this may interfere with inter-professional health and collaborative efforts.
+
+
+
+## Usage
+
+```
+./scripts/env.sh ./scripts/init_chart.sh
+```
