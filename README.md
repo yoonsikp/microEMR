@@ -1,10 +1,10 @@
-# µChart
+# nanoChart
 No more shitty EMR pls
 
 <img src="https://imgs.xkcd.com/comics/standards.png">
 
 ### User story
-A family doctor wants to write their notes in a standards compliant way, without paying for greedy and proprietary EMR systems.
+A family doctor wants to write their notes in a standards compliant way, without paying for greedy and proprietary charting systems.
 
 A health agency wants an EMR that will log the user's access to patient records to prevent misuse or unethical access.
 
@@ -12,7 +12,7 @@ A rural doctor wants to write notes on their laptop without internet connection,
 
 ### Features
 - Git based sync
-- Notes, documents, and media stored as files
+- Documents, observables, and raw media stored as files
 - Local editing through persistent SMB share
 - Server-client model to enforce access control and logging
 
@@ -32,7 +32,7 @@ sync between these two (git pull + git push) w/ security in mind.
 
 ### Warning
 
-Use of uChart in standalone mode without an upstream server for access control and logging may not be compliant with your regional healthcare regulations. Furthermore, this may interfere with inter-professional health and collaborative efforts.
+Use of nanoChart in standalone mode without an upstream server for access control and logging may not be compliant with your regional healthcare regulations. Furthermore, this may interfere with inter-professional health and collaborative efforts.
 
 
 

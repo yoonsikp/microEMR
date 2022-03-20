@@ -1,22 +1,22 @@
 # Metadata and Tagging
-# Special Tags: 'uemr:document', 'uemr:obs', 'uemr:raw', 'uemr:required'
+# Special Tags: 'nchart:document', 'nchart:obs', 'nchart:raw', 'nchart:required'
 # Reverse chronological preferred, '2022' before '2021'
 
 _id.nt:
-  - uemr:required
+  - nchart:required
 _metadata.nt:
-  - uemr:required
+  - nchart:required
 _summary.nt:
   - pinned_to_top
 
 # 20121223_vitals.md:
-#   - uemr:observable
+#   - nchart:observable
 #   - please review!
 # 20060129_example_note.md:
-#   - uemr:document
+#   - nchart:document
 #   - document_category:consult
 #   - service:psychiatry
 # 20010716_cxr:
-#   - uemr:raw
+#   - nchart:raw
 #   - location:BigCityHospital
 #   - other_emr_visit_id:f6ca9736

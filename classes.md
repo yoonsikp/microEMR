@@ -1,4 +1,4 @@
-UEMR allows 3 classes of files in a chart.
+nanoChart allows 3 classes of files in a chart.
 
 Document:
 - md, txt, pdf only
@@ -11,7 +11,8 @@ Document:
 - orders
 
 Observable:
-- md, txt, pdf, nt, json, xml ... no file format limitation (machine readable preferred)
+- md, txt, pdf, nt, json, xml ... no file format limitation
+- preferred if both human and machine readable
 - Vitals
 - labs
 - height/weight
