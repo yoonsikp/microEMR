@@ -13,11 +13,10 @@ scripts/validate_uuid.sh "${UUID}"
 
 CHARTDIR="${NCHART_SCRATCH}/${UUID}"
 
-# copy standard chart template
-cp -R templates/root/ "${CHARTDIR}"
+# git pull
+git -C "${CHARTDIR}" pull
 
-# create empty commit
-git -C "${CHARTDIR}" commit -q -a --allow-empty --no-edit \
-  -m "Initialized Chart" --author="${AUTHOR}"
+# git push
+git -C "${CHARTDIR}" push --atomic
 
-echo "Initialized chart located: ${CHARTDIR}"
+echo "Synced chart located: ${CHARTDIR}"

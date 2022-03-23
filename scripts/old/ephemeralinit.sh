@@ -9,7 +9,7 @@ mkdir /mnt/micro_emr/scratch/
 chmod 2770 micro_emr:micro_emr_users /mnt/micro_emr/scratch/
 
 
-# server should make folder 2750, enforces leemr commit
+# server should make folder 2750, enforces nchart commit
 mkdir /mnt/micro_emr/scratch/joel/
 chmod 2750 micro_emr:micro_emr_users /mnt/micro_emr/scratch/joel/
 

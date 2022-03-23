@@ -24,7 +24,7 @@
 # enforce server encryption during connection
 	smb encrypt = required
 
-# unix extensions = no
+	unix extensions = no
 	allow insecure wide links = no
 
 [scratch]
@@ -41,8 +41,8 @@
 # access control to only microEMR users
 	valid users = @micro_emr_users
 
-# disable symlinks (extra security)
-	follow symlinks = no
+# enable symlinks
+	follow symlinks = yes
 
 # force files and directories to be made with micro_emr user
 	inherit owner = unix only
