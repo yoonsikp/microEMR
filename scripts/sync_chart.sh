@@ -13,10 +13,20 @@ scripts/validate_uuid.sh "${UUID}"
 
 CHARTDIR="${NCHART_SCRATCH}/${UUID}"
 
-# git pull
-git -C "${CHARTDIR}" pull
+# if remote exists attempt pull push
 
-# git push
-git -C "${CHARTDIR}" push --atomic
+# if remote doesn't exist, check if golden var exists,
+# if it doesn't exist fail out
+# else, we must create it
+# maybe git clone if non-local??
+git remote add golden "${NCHART_GOLDEN}"
+
+# git pull if master branch exists on golden
+if git -C "${CHARTDIR}" ls-remote --quiet --exit-code golden master; then
+    git -C "${CHARTDIR}" pull --no-rebase golden
+fi
+
+# git push all branches, if successful set the remote/upstream branches
+git -C "${CHARTDIR}" push --all --set-upstream --atomic golden
 
 echo "Synced chart located: ${CHARTDIR}"

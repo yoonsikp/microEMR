@@ -16,7 +16,7 @@ mkdir "${CHARTDIR}"
 
 # initialize chart with git template
 git init --quiet --initial-branch main --bare \
-  --template=./templates/git "${CHARTDIR}"
+  --template=./templates/golden/git "${CHARTDIR}"
 
 # enforce file integrity
 git -C "${CHARTDIR}" config transfer.fsckObjects true
