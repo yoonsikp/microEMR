@@ -3,7 +3,7 @@
 set -euf -o pipefail
 set -x
 
-AUTHOR="${NCHART_FULL_NAME} <${NCHART_ACCOUNT_NAME}@${NCHART_ORGANIZATION}>"
+AUTHOR="${NCHART_NAME} <${NCHART_ACCOUNT}@${NCHART_ORG}>"
 
 # convert to lowercase, remove dashes
 NEWUUID="$(uuidgen | tr '[:upper:]' '[:lower:]'  | sed 's/-//g')"
@@ -22,6 +22,9 @@ git init --quiet --initial-branch main --bare \
 git -C "${CHARTDIR}" config transfer.fsckObjects true
 
 # prevent deleting main branch
-git -C "${CHARTDIR}" config receive.denyDeleteCurrent true
+git -C "${CHARTDIR}" config receive.denyDeletes true
+
+# stop non fast forward push
+git -C "${CHARTDIR}" config receive.denyNonFastForwards true
 
 echo "Your new chart is located: ${CHARTDIR}.git"

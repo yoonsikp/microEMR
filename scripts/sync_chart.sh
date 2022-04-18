@@ -3,30 +3,27 @@
 set -euf -o pipefail
 set -x
 
-AUTHOR="${NCHART_FULL_NAME} <${NCHART_ACCOUNT_NAME}@${NCHART_ORGANIZATION}>"
-
-# first argument
-UUID="${@}"
-
-# validate lowercase UUID
-scripts/validate_uuid.sh "${UUID}"
-
+# UUID validation
+UUID="${@}"; scripts/validate_uuid.sh "${UUID}"
 CHARTDIR="${NCHART_SCRATCH}/${UUID}"
+
+# check if golden exists (upstream)
+if [ -z "${NCHART_GOLDEN}" ]; then
+    echo "NCHART_GOLDEN must be valid to sync charts"; exit 1
+fi
+
+# if remote doesn't exist, we must create it
+# maybe git clone to init if non-local??
+git remote add golden "${NCHART_GOLDEN}"
 
 # if remote exists attempt pull push
 
-# if remote doesn't exist, check if golden var exists,
-# if it doesn't exist fail out
-# else, we must create it
-# maybe git clone if non-local??
-git remote add golden "${NCHART_GOLDEN}"
-
-# git pull if master branch exists on golden
-if git -C "${CHARTDIR}" ls-remote --quiet --exit-code golden master; then
-    git -C "${CHARTDIR}" pull --no-rebase golden
+# git pull if main branch exists on golden
+if git -C "${CHARTDIR}" ls-remote --quiet --exit-code golden main; then
+    git -C "${CHARTDIR}" pull --no-rebase golden main
 fi
 
 # git push all branches, if successful set the remote/upstream branches
 git -C "${CHARTDIR}" push --all --set-upstream --atomic golden
 
-echo "Synced chart located: ${CHARTDIR}"
+echo "Synced chart: ${CHARTDIR}"

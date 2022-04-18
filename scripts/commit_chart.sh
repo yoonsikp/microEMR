@@ -3,21 +3,15 @@
 set -euf -o pipefail
 set -x
 
-AUTHOR="${NCHART_FULL_NAME} <${NCHART_ACCOUNT_NAME}@${NCHART_ORGANIZATION}>"
-
-# first argument
+# UUID validation
 UUID="${@}"
-
-# validate lowercase UUID
 scripts/validate_uuid.sh "${UUID}"
-
 CHARTDIR="${NCHART_SCRATCH}/${UUID}"
 
-# add everything to staging
+# adds all new, modified, and deleted files to git staging
 git -C "${CHARTDIR}" add --all
 
-# git commit all
-git -C "${CHARTDIR}" commit -q --no-edit \
-  -m "Updated Chart" --author="${AUTHOR}"
+# create commit
+git -C "${CHARTDIR}" commit --no-edit --message "Updated Chart"
 
-echo "Commited all changes for chart located: ${CHARTDIR}"
+echo "Commited all changes for chart: ${CHARTDIR}"
