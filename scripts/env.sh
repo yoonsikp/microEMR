@@ -12,13 +12,27 @@ export NCHART_SSH_PUBLIC_KEY="${NCHART_CONF}/id_rsa.pub"
 # chmod 644 "${NCHART_SSH_PUBLIC_KEY}"
 
 # export NCHART_GOLDEN="ssh://[user@]localhost:2222/golden/"
-# export NCHART_GOLDEN="git://localhost:2222/golden/"
 export NCHART_GOLDEN="temp/golden"
-export NCHART_GOLDEN_LOCAL="1"
+
+export NCHART_GOLDEN_SSH="0"
+
+if expr "${NCHART_GOLDEN}" : ".*://"; then
+    if expr "${NCHART_GOLDEN}" : "ssh://" || expr "${NCHART_GOLDEN}" : "git://"; then
+        export NCHART_GOLDEN_SSH="1"
+    else
+        echo "non-ssh protocols not currently supported"; exit 1
+    fi
+fi
+
+# scp-like syntax for ssh is valid
+if expr "${NCHART_GOLDEN}" : "[^/]*:"; then
+    export NCHART_GOLDEN_SSH="1"
+fi
+
 export NCHART_SCRATCH="temp/scratch/${NCHART_ACCOUNT}/"
 
 # start ssh-agent
-if [ "${NCHART_GOLDEN_LOCAL}" == 0 ]; then
+if [ "${NCHART_GOLDEN_SSH}" == 1 ]; then
     source ./scripts/ssh_agent.sh
 fi
 

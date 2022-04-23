@@ -12,7 +12,7 @@ if [ -z "${NCHART_GOLDEN}" ]; then
 fi
 
 # configure source directory
-if [ "${NCHART_GOLDEN_LOCAL}" == 1 ]; then
+if [ "${NCHART_GOLDEN_SSH}" == 0 ]; then
     SOURCEDIR="${NCHART_GOLDEN}/${UUID:0:2}/${UUID:2:32}.git/"
 else
     SOURCEDIR="${NCHART_GOLDEN}/${UUID:0:2}/${UUID:2:32}"
