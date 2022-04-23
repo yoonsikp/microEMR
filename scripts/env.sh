@@ -17,7 +17,7 @@ export NCHART_GOLDEN="temp/golden"
 export NCHART_GOLDEN_SSH="0"
 
 if expr "${NCHART_GOLDEN}" : ".*://"; then
-    if expr "${NCHART_GOLDEN}" : "ssh://" || expr "${NCHART_GOLDEN}" : "git://"; then
+    if expr "${NCHART_GOLDEN}" : "ssh://"; then
         export NCHART_GOLDEN_SSH="1"
     else
         echo "non-ssh protocols not currently supported"; exit 1
