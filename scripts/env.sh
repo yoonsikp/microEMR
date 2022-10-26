@@ -16,8 +16,8 @@ export NCHART_GOLDEN="temp/golden"
 
 export NCHART_GOLDEN_SSH="0"
 
-if expr "${NCHART_GOLDEN}" : ".*://"; then
-    if expr "${NCHART_GOLDEN}" : "ssh://"; then
+if expr "${NCHART_GOLDEN}" : ".*://" > /dev/null; then
+    if expr "${NCHART_GOLDEN}" : "ssh://" > /dev/null; then
         export NCHART_GOLDEN_SSH="1"
     else
         echo "non-ssh protocols not currently supported"; exit 1
@@ -25,14 +25,14 @@ if expr "${NCHART_GOLDEN}" : ".*://"; then
 fi
 
 # scp-like syntax for ssh is valid
-if expr "${NCHART_GOLDEN}" : "[^/]*:"; then
+if expr "${NCHART_GOLDEN}" : "[^/]*:" > /dev/null; then
     export NCHART_GOLDEN_SSH="1"
 fi
 
 export NCHART_SCRATCH="/Users/yoonsik/nchartdemo/${NCHART_ACCOUNT}/"
 
 # start ssh-agent
-if [ "${NCHART_GOLDEN_SSH}" == 1 ]; then
+if [ "${NCHART_GOLDEN_SSH}" = 1 ]; then
     source ./scripts/ssh_agent.sh
 fi
 

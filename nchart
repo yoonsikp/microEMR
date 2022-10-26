@@ -8,20 +8,30 @@ trap 'exit' INT
 USAGE_HELP="Usage: nchart { COMMAND }"
 
 # check if arguments are empty
-if [ -z "${@}" ]; then
+if [ -z "${@+x}" ]; then
     echo "${USAGE_HELP}"; exit 1
 fi
 
 # remove subcommand from arguments through shift
 NCHART_COMMAND="${1}"; shift
-NCHART_ARGS="${@}"
+NCHART_ARGS="${@}"./scripts/new_chart_scratch.sh "${NCHART_ARGS}"
 
-# equivalent to: source ./scripts/env.sh;
+# i.e. source ./scripts/env.sh
 .  ./scripts/env.sh;
+
+# get name of current top level directory, uuid used if not given
+TOP_DIR="$(basename "$PWD")"
+if scripts/validate_uuid.sh "${TOP_DIR}"; then
+	UUID_FROM_DIR="${TOP_DIR}"
+fi
 
 case "${NCHART_COMMAND}" in
 	new_chart )
-		./scripts/new_chart_scratch.sh "${NCHART_ARGS}"
+		if ["${NCHART_GOLDEN_SSH}" = 1]; then
+			./scripts/new_chart_golden.sh "${NCHART_ARGS}"
+		else
+			./scripts/new_chart_scratch.sh "${NCHART_ARGS}"
+		fi
 		;;
 	init_chart )
 		./scripts/init_chart.sh "${NCHART_ARGS}"
@@ -41,8 +51,3 @@ case "${NCHART_COMMAND}" in
 	* )
 		echo "${USAGE_HELP}"; exit 1;;
 esac
-
-
-# if ["${NCHART_COMMAND}" == "new_chart" ]; then
-#     exec "./scripts/env.sh ./scripts/new_chart_scratch.sh ${NCHART_ARGS}"
-# fi

@@ -13,7 +13,7 @@ if SSH_AGENT_ENV="$(cat ~/.nchart/ssh_agent)"; then
     eval "$SSH_AGENT_ENV" >/dev/null 2>&1
     # run new_ssh_agent if ssh-add connection fails (retcode 2)
     RETCODE=0; ssh-add -l >/dev/null 2>&1 || RETCODE="$?"
-    if [ "$RETCODE" == 2 ]; then
+    if [ "$RETCODE" = 2 ]; then
         new_ssh_agent
     fi
 else
