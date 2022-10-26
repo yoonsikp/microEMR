@@ -29,7 +29,7 @@ if expr "${NCHART_GOLDEN}" : "[^/]*:"; then
     export NCHART_GOLDEN_SSH="1"
 fi
 
-export NCHART_SCRATCH="temp/scratch/${NCHART_ACCOUNT}/"
+export NCHART_SCRATCH="/Users/yoonsik/nchartdemo/${NCHART_ACCOUNT}/"
 
 # start ssh-agent
 if [ "${NCHART_GOLDEN_SSH}" == 1 ]; then
@@ -41,4 +41,3 @@ mkdir -p "${NCHART_SCRATCH}"
 
 export GIT_SSH_COMMAND="ssh -i '${NCHART_SSH_PRIVATE_KEY}' -o 'IdentitiesOnly yes' -o 'AddKeysToAgent yes'"
 # git config core.askPass
-"$@" 

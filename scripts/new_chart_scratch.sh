@@ -16,7 +16,7 @@ git init --initial-branch main --template=./templates/git/scratch "${CHARTDIR}"
 git -C "${CHARTDIR}" config user.name "${NCHART_NAME}"
 git -C "${CHARTDIR}" config user.email "${NCHART_ACCOUNT}@${NCHART_ORG}"
 
-# create commit with empty folder
+# create initial commit with empty folder
 git -C "${CHARTDIR}" commit --allow-empty --no-edit --message="New Chart"
 
 echo "Successfully created new chart: ${CHARTDIR}"
