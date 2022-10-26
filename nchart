@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# stop on all errors
+set -euf -o pipefail
+
+# death after SIGINT
+trap 'exit' INT
+
+USAGE_HELP="Usage: nchart { COMMAND }"
+
+# check if arguments are empty
+if [ -z "${@}" ]; then
+    echo "${USAGE_HELP}"; exit 1
+fi
+
+# remove subcommand from arguments through shift
+NCHART_COMMAND="${1}"; shift
+NCHART_ARGS="${@}"
+
+case "${NCHART_COMMAND}" in
+	new_chart )
+		./scripts/env.sh ./scripts/new_chart_scratch.sh ${NCHART_ARGS}
+		;;
+	init_chart )
+		./scripts/env.sh ./scripts/init_chart.sh ${NCHART_ARGS}
+		;;
+    commit_chart )
+		./scripts/env.sh ./scripts/commit_chart.sh ${NCHART_ARGS}
+		;;
+    open_chart )
+		./scripts/env.sh ./scripts/open_chart.sh ${NCHART_ARGS}
+		;;
+    sync_chart )
+		./scripts/env.sh ./scripts/sync_chart.sh ${NCHART_ARGS}
+		;;
+    close_chart )
+		./scripts/env.sh ./scripts/close_chart.sh ${NCHART_ARGS}
+		;;
+	* )
+		echo "${USAGE_HELP}"; exit 2;;
+esac
+
+
+# if ["${NCHART_COMMAND}" == "new_chart" ]; then
+#     exec "./scripts/env.sh ./scripts/new_chart_scratch.sh ${NCHART_ARGS}"
+# fi
+
+echo "${NCHART_COMMAND}"
