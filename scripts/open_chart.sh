@@ -12,12 +12,8 @@ if [ -z "${NCHART_GOLDEN}" ]; then
 fi
 
 # configure source directory
-if [ "${NCHART_GOLDEN_SSH}" == 0 ]; then
-    SOURCEDIR="${NCHART_GOLDEN}/${UUID:0:2}/${UUID:2:32}.git/"
-else
-    SOURCEDIR="${NCHART_GOLDEN}/${UUID:0:2}/${UUID:2:32}"
-fi
+SOURCEDIR="${NCHART_GOLDEN}/${UUID:0:2}/${UUID:2:32}.git"
 
 # disable executable bit
-git clone --quiet --reject-shallow --no-local --no-hardlinks --template=./templates/git/ \
+git clone --quiet --reject-shallow --no-local --no-hardlinks --template=./templates/git/scratch \
     --config core.filemode=false "${SOURCEDIR}" "${NCHART_SCRATCH}/${UUID}"

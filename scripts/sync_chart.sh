@@ -14,7 +14,11 @@ fi
 
 # if remote doesn't exist, we must create it
 # maybe git clone to init if non-local??
-git remote add golden "${NCHART_GOLDEN}"
+
+# configure source directory
+SOURCEDIR="${NCHART_GOLDEN}/${UUID:0:2}/${UUID:2:32}.git"
+
+git -C "${CHARTDIR}" remote add golden "${SOURCEDIR}"
 
 # if remote exists attempt pull push
 
