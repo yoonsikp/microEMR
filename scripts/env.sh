@@ -11,7 +11,7 @@ export NCHART_SSH_PUBLIC_KEY="${NCHART_CONF}/id_rsa.pub"
 # chmod 600 "${NCHART_SSH_PRIVATE_KEY}"
 # chmod 644 "${NCHART_SSH_PUBLIC_KEY}"
 
-# export NCHART_GOLDEN="ssh://[user@]localhost:2222/golden/"
+# export NCHART_GOLDEN="ssh://git@server:2222/golden/"
 export NCHART_GOLDEN="temp/golden"
 
 export NCHART_GOLDEN_SSH="0"

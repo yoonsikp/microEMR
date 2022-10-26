@@ -8,7 +8,7 @@ Document:
 - consults
 - referrals
 - requisitions
-- orders
+- orders (difficult without a more structured format)
 
 Observable:
 - md, txt, pdf, nt, json, xml ... no file format limitation
