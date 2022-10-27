@@ -13,8 +13,8 @@ mkdir "${CHARTDIR}"
 git init --initial-branch main --template=./templates/git/scratch "${CHARTDIR}"
 
 # set git user details
-git -C "${CHARTDIR}" config user.name "${NCHART_NAME}"
-git -C "${CHARTDIR}" config user.email "${NCHART_ACCOUNT}@${NCHART_ORG}"
+git -C "${CHARTDIR}" config user.name "${NCHART_FULLNAME}"
+git -C "${CHARTDIR}" config user.email "${NCHART_ACCOUNT}@${NCHART_DOMAIN}"
 
 # create initial commit with empty folder
 git -C "${CHARTDIR}" commit --allow-empty --no-edit --message="New Chart"
