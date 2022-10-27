@@ -34,6 +34,8 @@ Use of nanoChart in standalone mode without an upstream server for access contro
 
 ## Usage
 
+example upstream server golden: "ssh://git@server:2222/golden/"
+
 ```
 ./scripts/env.sh ./scripts/init_chart.sh
 ```
