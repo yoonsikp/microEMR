@@ -7,11 +7,6 @@ trap 'exit' INT
 
 USAGE_HELP="Usage: nchart { COMMAND }"
 
-# set default nchart configuration directory
-if [ -z "${NCHART_CONF+x}" ]; then
-    export NCHART_CONF="${HOME}/.nchart/}"
-fi
-
 # check if arguments are empty
 if [ -z "${@+x}" ]; then
     echo "${USAGE_HELP}"; exit 1
@@ -19,13 +14,13 @@ fi
 
 # remove subcommand from arguments through shift
 NCHART_COMMAND="${1}"; shift
-NCHART_ARGS="${@}"./scripts/new_chart_scratch.sh "${NCHART_ARGS}"
+NCHART_ARGS="${@}"
 
 # i.e. source ./scripts/env.sh
 .  ./scripts/env.sh;
 
 # scratch directory must be set
-if [ -z "${NCHART_SCRATCH+x}" ]; then
+if [ -z "${NCHART_SCRATCH}" ]; then
     echo "scratch directory must be set"; exit 1
 fi
 # create scratch directory if it doesn't exist
@@ -39,7 +34,7 @@ fi
 
 case "${NCHART_COMMAND}" in
 	new_chart )
-		if ["${NCHART_USE_SSH}" = 1]; then
+		if [ "${NCHART_USE_SSH}" = 1 ]; then
 			./scripts/new_chart_golden.sh "${NCHART_ARGS}"
 		else
 			./scripts/new_chart_scratch.sh "${NCHART_ARGS}"

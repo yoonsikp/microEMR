@@ -2,12 +2,17 @@
 # stop on all errors
 set -e
 
-export NCHART_FULLNAME="Joel McDonald"
-export NCHART_ACCOUNT="joel"
-export NCHART_DOMAIN="mgh"
-export NCHART_SCRATCH="/Users/yoonsik/nchartdemo/${NCHART_ACCOUNT}/"
-# export NCHART_GOLDEN="ssh://git@server:2222/golden/"
-export NCHART_GOLDEN="temp/golden"
+# set default nchart configuration directory
+if [ -z "${NCHART_CONF+x}" ]; then
+    export NCHART_CONF="${HOME}/.nchart"
+fi
+
+# parse first line of each file
+export NCHART_FULLNAME="$(head -n1 "${NCHART_CONF}/fullname")"
+export NCHART_ACCOUNT="$(head -n1 "${NCHART_CONF}/account")"
+export NCHART_DOMAIN="$(head -n1 "${NCHART_CONF}/domain")"
+export NCHART_SCRATCH="$(head -n1 "${NCHART_CONF}/scratch")"
+export NCHART_GOLDEN="$(head -n1 "${NCHART_CONF}/golden")"
 
 # look for valid SSH string
 export NCHART_USE_SSH="0"
@@ -27,13 +32,14 @@ export NCHART_SSH_PUBLIC_KEY="${NCHART_CONF}/id_rsa.pub"
 # chmod 600 "${NCHART_SSH_PRIVATE_KEY}"
 # chmod 644 "${NCHART_SSH_PUBLIC_KEY}"
 
-# start ssh-agent
 if [ "${NCHART_USE_SSH}" = 1 ]; then
+    # start ssh-agent
     # i.e. source ./scripts/ssh_agent.sh
     . ./scripts/ssh_agent.sh
+    # force git to use available key
+    # make sure ${NCHART_SSH_PRIVATE_KEY} is properly escaped
+    export GIT_SSH_COMMAND="ssh -i \"${NCHART_SSH_PRIVATE_KEY}\" -o \"IdentitiesOnly yes\" -o \"AddKeysToAgent yes\""
 fi
 
-# make sure ${NCHART_SSH_PRIVATE_KEY} is properly escaped
-export GIT_SSH_COMMAND="ssh -i \"${NCHART_SSH_PRIVATE_KEY}\" -o \"IdentitiesOnly yes\" -o \"AddKeysToAgent yes\""
-
 # git config core.askPass
+
