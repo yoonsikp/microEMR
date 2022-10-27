@@ -11,4 +11,4 @@ echo "${NCHART_CONF}"
 # crash if configuration directory already exists
 mkdir "${NCHART_CONF}"
 
-cp -R ./templates/config/ ~/.nchart/
+cp -R ./templates/config/ "${NCHART_CONF}"
