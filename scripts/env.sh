@@ -33,5 +33,7 @@ if [ "${NCHART_USE_SSH}" = 1 ]; then
     . ./scripts/ssh_agent.sh
 fi
 
-export GIT_SSH_COMMAND="ssh -i '${NCHART_SSH_PRIVATE_KEY}' -o 'IdentitiesOnly yes' -o 'AddKeysToAgent yes'"
+# make sure ${NCHART_SSH_PRIVATE_KEY} is properly escaped
+export GIT_SSH_COMMAND="ssh -i \"${NCHART_SSH_PRIVATE_KEY}\" -o \"IdentitiesOnly yes\" -o \"AddKeysToAgent yes\""
+
 # git config core.askPass
