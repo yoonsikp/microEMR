@@ -16,21 +16,20 @@ export NCHART_GOLDEN="$(head -n1 "${NCHART_CONF}/golden")"
 
 # look for valid SSH string
 export NCHART_USE_SSH="0"
+# ssh:// style string
 if expr "${NCHART_GOLDEN}" : ".*://" > /dev/null; then
     if expr "${NCHART_GOLDEN}" : "ssh://" > /dev/null; then
         export NCHART_USE_SSH="1"
     else
         echo "non-ssh protocols not currently supported"; exit 1
     fi
-# scp-like syntax for ssh is also valid
+# scp-like syntax is also valid
 elif expr "${NCHART_GOLDEN}" : "[^/]*:" > /dev/null; then
     export NCHART_USE_SSH="1"
 fi
 
 export NCHART_SSH_PRIVATE_KEY="${NCHART_CONF}/id_rsa"
 export NCHART_SSH_PUBLIC_KEY="${NCHART_CONF}/id_rsa.pub"
-# chmod 600 "${NCHART_SSH_PRIVATE_KEY}"
-# chmod 644 "${NCHART_SSH_PUBLIC_KEY}"
 
 if [ "${NCHART_USE_SSH}" = 1 ]; then
     # start ssh-agent
