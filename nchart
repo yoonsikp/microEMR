@@ -33,24 +33,24 @@ if scripts/validate_uuid.sh "${TOP_DIR}"; then
 fi
 
 case "${NCHART_COMMAND}" in
-	new_chart )
+	new )
 		if [ -z "${NCHART_GOLDEN}" ]; then
 			./scripts/new_chart_scratch.sh "${NCHART_ARGS}"
 		else
 			./scripts/new_chart_golden.sh "${NCHART_ARGS}"
 		fi
 		;;
-	init_chart )
+	init )
 		./scripts/init_chart.sh "${NCHART_ARGS}"
 		;;
-    open_chart )
+    open )
 		./scripts/open_chart.sh "${NCHART_ARGS}"
 		;;
-    sync_chart )
+    sync )
 		./scripts/commit_chart.sh "${NCHART_ARGS}"
 		./scripts/sync_chart.sh "${NCHART_ARGS}"
 		;;
-    close_chart )
+    close )
 		./scripts/close_chart.sh "${NCHART_ARGS}"
 		;;
 	* )
