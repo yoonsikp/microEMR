@@ -37,6 +37,7 @@ if [ "${NCHART_USE_SSH}" = 1 ]; then
     . ./scripts/ssh_agent.sh
     # force git to use available key
     # make sure ${NCHART_SSH_PRIVATE_KEY} is properly escaped
+    # TODO check if this is actually safe
     export GIT_SSH_COMMAND="ssh -i \"${NCHART_SSH_PRIVATE_KEY}\" -o \"IdentitiesOnly yes\" -o \"AddKeysToAgent yes\""
 fi
 

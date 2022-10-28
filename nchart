@@ -34,10 +34,10 @@ fi
 
 case "${NCHART_COMMAND}" in
 	new_chart )
-		if [ "${NCHART_USE_SSH}" = 1 ]; then
-			./scripts/new_chart_golden.sh "${NCHART_ARGS}"
-		else
+		if [ -z "${NCHART_GOLDEN}" ]; then
 			./scripts/new_chart_scratch.sh "${NCHART_ARGS}"
+		else
+			./scripts/new_chart_golden.sh "${NCHART_ARGS}"
 		fi
 		;;
 	init_chart )
