@@ -43,13 +43,11 @@ case "${NCHART_COMMAND}" in
 	init_chart )
 		./scripts/init_chart.sh "${NCHART_ARGS}"
 		;;
-    commit_chart )
-		./scripts/commit_chart.sh "${NCHART_ARGS}"
-		;;
     open_chart )
 		./scripts/open_chart.sh "${NCHART_ARGS}"
 		;;
     sync_chart )
+		./scripts/commit_chart.sh "${NCHART_ARGS}"
 		./scripts/sync_chart.sh "${NCHART_ARGS}"
 		;;
     close_chart )
