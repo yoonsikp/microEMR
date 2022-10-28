@@ -18,7 +18,10 @@ fi
 # configure source directory
 SOURCEDIR="${NCHART_GOLDEN}/${UUID:0:2}/${UUID:2:32}.git"
 
-git -C "${CHARTDIR}" remote add golden "${SOURCEDIR}"
+# check if golden remote already exists
+if ! git -C "${CHARTDIR}" remote | grep -l -x "golden"; then
+    git -C "${CHARTDIR}" remote add golden "${SOURCEDIR}"
+fi
 
 # if remote exists attempt pull push
 

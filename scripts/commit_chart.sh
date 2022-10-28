@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # stop on all errors
 set -euf -o pipefail
-set -x
 
 # UUID validation
 UUID="${@}"
@@ -12,6 +11,8 @@ CHARTDIR="${NCHART_SCRATCH}/${UUID}"
 git -C "${CHARTDIR}" add --all
 
 # create commit
-git -C "${CHARTDIR}" commit --no-edit --message "Updated Chart"
-
-echo "Commited all changes for chart: ${CHARTDIR}"
+if git -C "${CHARTDIR}" commit --no-edit --message "Updated Chart"; then
+    echo "Commited all changes for chart: ${CHARTDIR}"
+else
+    echo "No changes to commit"
+fi
