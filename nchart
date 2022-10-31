@@ -5,6 +5,9 @@ set -euf
 # death after SIGINT
 trap 'exit' INT
 
+# switch to script directory
+cd "$(dirname "$0")"
+
 USAGE_HELP="Usage: nchart { COMMAND }"
 
 # check if arguments are empty
