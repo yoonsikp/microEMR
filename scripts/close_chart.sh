@@ -17,3 +17,5 @@ if [ ! -d "${CHARTDIR}" ]; then
 else
     rm -rf "${CHARTDIR}"
 fi
+
+echo "chart closed"

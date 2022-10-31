@@ -58,6 +58,8 @@ case "${NCHART_COMMAND}" in
 		./scripts/sync_chart.sh "${NCHART_ARGS}"
 		;;
     close )
+		./scripts/commit_chart.sh "${NCHART_ARGS}"
+		./scripts/sync_chart.sh "${NCHART_ARGS}"
 		./scripts/close_chart.sh "${NCHART_ARGS}"
 		;;
 	* )
