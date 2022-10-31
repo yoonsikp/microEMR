@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # stop on all errors
 set -e
 

@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # stop on all errors
-set -euf -o pipefail
+set -euf
 
 # death after SIGINT
 trap 'exit' INT
@@ -8,13 +8,17 @@ trap 'exit' INT
 USAGE_HELP="Usage: nchart { COMMAND }"
 
 # check if arguments are empty
-if [ -z "${@+x}" ]; then
+if [ -z "${*+x}" ]; then
     echo "${USAGE_HELP}"; exit 1
 fi
 
 # remove subcommand from arguments through shift
 NCHART_COMMAND="${1}"; shift
-NCHART_ARGS="${@}"
+if [ -z "${*+x}" ]; then
+    NCHART_ARGS=""
+else
+	NCHART_ARGS="${*}"
+fi
 
 # i.e. source ./scripts/env.sh
 .  ./scripts/env.sh;

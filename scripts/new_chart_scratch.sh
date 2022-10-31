@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # stop on all errors
-set -euf -o pipefail
+set -euf
 
 # get new UUID
 NEWUUID="$(./scripts/new_uuid.sh)"

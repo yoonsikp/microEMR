@@ -1,11 +1,16 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # stop on all errors
-set -euf -o pipefail
+set -euf
 
 # get new UUID
-NEWUUID="$(./scripts/new_uuid.sh)"
-mkdir -p "${NCHART_GOLDEN}/${NEWUUID:0:2}"
-CHARTDIR="${NCHART_GOLDEN}/${NEWUUID:0:2}/${NEWUUID:2:32}.git/"
+UUID="$(./scripts/new_uuid.sh)"
+
+UUID_UPPER="$(printf '%s\n' "${UUID}" | cut -c1-2)"
+UUID_LOWER="$(printf '%s\n' "${UUID}" | cut -c3-32)"
+
+mkdir -p "${NCHART_GOLDEN}/${UUID_UPPER}"
+CHARTDIR="${NCHART_GOLDEN}/${UUID_UPPER}/${UUID_LOWER}.git"
+
 
 # crash if chart directory already exists
 mkdir "${CHARTDIR}"
@@ -22,4 +27,4 @@ git -C "${CHARTDIR}" config receive.denyDeletes true
 # stop non fast forward push
 git -C "${CHARTDIR}" config receive.denyNonFastForwards true
 
-echo "Your new chart is located: ${CHARTDIR}.git"
+echo "Your new chart is located: ${CHARTDIR}"

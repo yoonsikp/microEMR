@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # stop on all errors
-set -euf -o pipefail
+set -euf
 
 # UUID validation
-UUID="${@}"
+UUID="${*}"
 scripts/validate_uuid.sh "${UUID}"
 CHARTDIR="${NCHART_SCRATCH}/${UUID}"
 

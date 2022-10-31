@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # stop on all errors
-set -euf -o pipefail
+set -euf
 
 # set default nchart configuration directory
 if [ -z "${NCHART_CONF+x}" ]; then

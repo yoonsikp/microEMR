@@ -1,7 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # stop on all errors
-set -euf -o pipefail
-set -x
+set -euf
 
 # UUID validation
 UUID="${@}"; scripts/validate_uuid.sh "${UUID}"
@@ -15,8 +14,11 @@ fi
 # if remote doesn't exist, we must create it
 # maybe git clone to init if non-local??
 
+UUID_UPPER="$(printf '%s\n' "${UUID}" | cut -c1-2)"
+UUID_LOWER="$(printf '%s\n' "${UUID}" | cut -c3-32)"
+
 # configure source directory
-SOURCEDIR="${NCHART_GOLDEN}/${UUID:0:2}/${UUID:2:32}.git"
+SOURCEDIR="${NCHART_GOLDEN}/${UUID_UPPER}/${UUID_LOWER}.git"
 
 # check if golden remote already exists
 if ! git -C "${CHARTDIR}" remote | grep -l -x "golden"; then
