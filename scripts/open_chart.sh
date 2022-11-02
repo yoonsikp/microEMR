@@ -18,5 +18,5 @@ UUID_LOWER="$(printf '%s\n' "${UUID}" | cut -c3-32)"
 SOURCEDIR="${NCHART_GOLDEN}/${UUID_UPPER}/${UUID_LOWER}.git"
 
 # disable executable bit
-git clone --quiet --reject-shallow --no-local --no-hardlinks --template=./templates/git/scratch \
+git clone --quiet --reject-shallow --no-local --no-hardlinks --template=./policies/default/git/scratch \
     --config core.filemode=false "${SOURCEDIR}" "${NCHART_SCRATCH}/${UUID}"

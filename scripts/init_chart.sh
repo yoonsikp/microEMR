@@ -8,7 +8,7 @@ scripts/validate_uuid.sh "${UUID}"
 CHARTDIR="${NCHART_SCRATCH}/${UUID}"
 
 # copy standard chart template
-cp -R templates/chart/ "${CHARTDIR}"
+cp -R policies/default/root/ "${CHARTDIR}"
 
 # add files to git staging
 git -C "${CHARTDIR}" add --all

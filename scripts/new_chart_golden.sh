@@ -16,7 +16,7 @@ CHARTDIR="${NCHART_GOLDEN}/${UUID_UPPER}/${UUID_LOWER}.git"
 mkdir "${CHARTDIR}"
 
 # initialize chart with git template
-git init --initial-branch main --bare --template=./templates/git/golden "${CHARTDIR}"
+git init --initial-branch main --bare --template=./policies/default/git/golden "${CHARTDIR}"
 
 # enforce file integrity
 git -C "${CHARTDIR}" config transfer.fsckObjects true
