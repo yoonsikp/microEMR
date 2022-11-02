@@ -1,9 +1,0 @@
----
-- name: configure server Software
-  hosts: "local_vm"
-  gather_facts: no
-  tasks:
-    - name: configure software
-      include_role:
-        name: server_configure
-

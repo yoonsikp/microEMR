@@ -1,9 +1,0 @@
----
-- name: Deploy server with Software
-  hosts: "local_vm"
-  gather_facts: no
-  tasks:
-    - name: update, install base software and reboot
-      include_role:
-        name: server_base
-
