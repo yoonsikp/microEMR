@@ -23,7 +23,7 @@ add_user.yml before adduser.sh before chpasswd.sh
 
 ### 
 
-golden (master)      --> (git clone)    scratch (personal_branch)
+upstream (master)      --> (git clone)    scratch (personal_branch)
 
 sync between these two (git pull + git push) w/ security in mind.
 
@@ -34,7 +34,7 @@ Use of nanoChart in standalone mode without an upstream server for access contro
 
 ## Usage
 
-example upstream server golden: "ssh://git@server:2222/golden/"
+example upstream server: "ssh://git@server:2222/upstream/"
 
 ```
 ./scripts/env.sh ./scripts/init_chart.sh

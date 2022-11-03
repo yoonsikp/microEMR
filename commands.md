@@ -20,7 +20,7 @@ A (permissive)
 - run scripts/init_chart.sh on scratch with uuid (import flag)
 - run nchart open with uuid
 A (strict)
-- run scripts/init_chart.sh on golden with uuid
+- run scripts/init_chart.sh on upstream with uuid
 - run nchart open with uuid
 B
 - run scripts/init_chart.sh on scratch with uuid (import flag)
@@ -28,10 +28,10 @@ B
 
 nchart open <UUID>
 A
-- cp from golden to scratch/$user/
+- cp from upstream to scratch/$user/
 B
 - git clone from 
-- cp from golden to scratch/$user/
+- cp from upstream to scratch/$user/
 
 nchart close <UUID>
 - run nchart commit
@@ -59,15 +59,15 @@ https://stackoverflow.com/questions/8424232/are-concurrent-git-pushes-always-saf
 
 How to do chart import
 - if import flag is set on chart 
-  - if uuid exists in golden
+  - if uuid exists in upstream
     - halt, ask if import_fresh or import_merge is desired
-      - if import_fresh follow instructions from: "if uuid dne in golden"
+      - if import_fresh follow instructions from: "if uuid dne in upstream"
       - if import_merge do git pull and normal stuff
     - if import_merge chosen with unrelated history (orignal commit is different hash)
       - ask if allow-unrelated-histories
       - https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories-on-rebase
-  - if uuid dne in golden
-    - init_chart.sh on golden with new uuid
+  - if uuid dne in upstream
+    - init_chart.sh on upstream with new uuid
     - rename old uuid -> new uuid
     - we good
 

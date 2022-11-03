@@ -12,19 +12,19 @@ export NCHART_FULLNAME="$(head -n1 "${NCHART_CONF}/fullname")"
 export NCHART_ACCOUNT="$(head -n1 "${NCHART_CONF}/account")"
 export NCHART_DOMAIN="$(head -n1 "${NCHART_CONF}/domain")"
 export NCHART_SCRATCH="$(head -n1 "${NCHART_CONF}/scratch")"
-export NCHART_GOLDEN="$(head -n1 "${NCHART_CONF}/golden")"
+export NCHART_UPSTREAM="$(head -n1 "${NCHART_CONF}/upstream")"
 
 # look for valid SSH string
 export NCHART_USE_SSH="0"
 # ssh:// style string
-if expr "${NCHART_GOLDEN}" : ".*://" > /dev/null; then
-    if expr "${NCHART_GOLDEN}" : "ssh://" > /dev/null; then
+if expr "${NCHART_UPSTREAM}" : ".*://" > /dev/null; then
+    if expr "${NCHART_UPSTREAM}" : "ssh://" > /dev/null; then
         export NCHART_USE_SSH="1"
     else
         echo "non-ssh protocols not currently supported"; exit 1
     fi
 # scp-like syntax is also valid
-elif expr "${NCHART_GOLDEN}" : "[^/]*:" > /dev/null; then
+elif expr "${NCHART_UPSTREAM}" : "[^/]*:" > /dev/null; then
     export NCHART_USE_SSH="1"
 fi
 

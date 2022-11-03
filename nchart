@@ -5,6 +5,12 @@ set -euf
 # death after SIGINT
 trap 'exit' INT
 
+# get name of current top level directory
+TOP_DIR="$(basename "$PWD")"
+if scripts/validate_uuid.sh "${TOP_DIR}"; then
+	UUID_FROM_DIR="${TOP_DIR}"
+fi
+
 # switch to script directory
 cd "$(dirname "$0")"
 
@@ -33,18 +39,12 @@ fi
 # create scratch directory if it doesn't exist
 mkdir -p "${NCHART_SCRATCH}"
 
-# get name of current top level directory, uuid used if not given
-TOP_DIR="$(basename "$PWD")"
-if scripts/validate_uuid.sh "${TOP_DIR}"; then
-	UUID_FROM_DIR="${TOP_DIR}"
-fi
-
 case "${NCHART_COMMAND}" in
 	new )
-		if [ -z "${NCHART_GOLDEN}" ]; then
+		if [ -z "${NCHART_UPSTREAM}" ]; then
 			./scripts/new_chart_scratch.sh "${NCHART_ARGS}"
 		else
-			./scripts/new_chart_golden.sh "${NCHART_ARGS}"
+			./scripts/new_chart_upstream.sh "${NCHART_ARGS}"
 		fi
 		;;
 	init )

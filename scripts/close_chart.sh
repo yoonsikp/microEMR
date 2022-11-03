@@ -7,9 +7,9 @@ UUID="${*}"
 scripts/validate_uuid.sh "${UUID}"
 CHARTDIR="${NCHART_SCRATCH}/${UUID}"
 
-# check if golden exists (upstream)
-if [ -z "${NCHART_GOLDEN}" ]; then
-    echo "NCHART_GOLDEN must be valid to delete charts"; exit 1
+# check if UPSTREAM exists (upstream)
+if [ -z "${NCHART_UPSTREAM}" ]; then
+    echo "NCHART_UPSTREAM must be valid to delete charts"; exit 1
 fi
 
 if [ ! -d "${CHARTDIR}" ]; then
