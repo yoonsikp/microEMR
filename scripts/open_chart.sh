@@ -17,6 +17,12 @@ UUID_LOWER="$(printf '%s\n' "${UUID}" | cut -c3-32)"
 # configure source directory
 SOURCEDIR="${NCHART_UPSTREAM}/${UUID_UPPER}/${UUID_LOWER}.git"
 
+CHARTDIR="${NCHART_SCRATCH}/${NEWUUID}/"
+
 # disable executable bit
 git clone --quiet --reject-shallow --no-local --no-hardlinks --template=./policies/default/git/scratch \
-    --config core.filemode=false "${SOURCEDIR}" "${NCHART_SCRATCH}/${UUID}"
+    --config core.filemode=false "${SOURCEDIR}" "${CHARTDIR}"
+
+# set git user details
+git -C "${CHARTDIR}" config user.name "${NCHART_FULLNAME}"
+git -C "${CHARTDIR}" config user.email "${NCHART_ACCOUNT}@${NCHART_DOMAIN}"

@@ -7,7 +7,7 @@ UUID="${*}"
 scripts/validate_uuid.sh "${UUID}"
 CHARTDIR="${NCHART_SCRATCH}/${UUID}"
 
-# copy standard chart template
+# copy default chart template
 cp -R policies/default/root/ "${CHARTDIR}"
 
 # add files to git staging
