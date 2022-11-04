@@ -27,15 +27,15 @@ fi
 
 # if remote exists attempt pull push
 
-# git pull if main branch exists on upstream
-if git -C "${CHARTDIR}" ls-remote --quiet --exit-code upstream main; then
-    git -C "${CHARTDIR}" pull --no-rebase upstream main
+# git pull if master branch exists on upstream
+if git -C "${CHARTDIR}" ls-remote --quiet --exit-code upstream master; then
+    git -C "${CHARTDIR}" pull --no-rebase upstream master
 fi
 
 # # git push all branches, if successful set the remote/upstream branches
 # git -C "${CHARTDIR}" push --all --set-upstream --atomic upstream
 
 # git push master, if successful set the remote/upstream branches
-git -C "${CHARTDIR}" push --set-upstream --atomic upstream main
+git -C "${CHARTDIR}" push --set-upstream --atomic upstream master
 
 echo "Synced chart: ${CHARTDIR}"

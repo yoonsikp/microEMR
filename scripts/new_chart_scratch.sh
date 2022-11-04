@@ -10,7 +10,7 @@ CHARTDIR="${NCHART_SCRATCH}/${NEWUUID}/"
 mkdir "${CHARTDIR}"
 
 # initialize git repo with git template, i.e. policies
-git init --initial-branch main --template=./policies/default/git/scratch "${CHARTDIR}"
+git init --initial-branch master --template=./policies/default/git/scratch "${CHARTDIR}"
 
 # set git user details
 git -C "${CHARTDIR}" config user.name "${NCHART_FULLNAME}"

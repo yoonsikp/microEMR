@@ -1,4 +1,4 @@
-# Local + Upstream
+# Scratch + Upstream
 
 ./nchart new
 
@@ -9,7 +9,7 @@
 ./nchart commit 41158a59af98429da3fee41d25aa1dc8
 
 
-# Remote Only
+# Upstream Only
 
 ./nchart open 41158a59af98429da3fee41d25aa1dc8
 

@@ -43,6 +43,8 @@ case "${NCHART_COMMAND}" in
 	new )
 		if [ -z "${NCHART_UPSTREAM}" ]; then
 			./scripts/new_chart_scratch.sh "${NCHART_ARGS}"
+		elif [ "${NCHART_USE_SSH}" = "1" ]; then
+			./scripts/new_chart_upstream_ssh.sh "${NCHART_ARGS}"
 		else
 			./scripts/new_chart_upstream.sh "${NCHART_ARGS}"
 		fi
