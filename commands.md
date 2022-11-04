@@ -1,5 +1,3 @@
-NCHART_NAME = 
-
 Strict mode:
 - no standalone mode
 - no chart imports allowed

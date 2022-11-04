@@ -32,7 +32,10 @@ if git -C "${CHARTDIR}" ls-remote --quiet --exit-code upstream main; then
     git -C "${CHARTDIR}" pull --no-rebase upstream main
 fi
 
-# git push all branches, if successful set the remote/upstream branches
-git -C "${CHARTDIR}" push --all --set-upstream --atomic upstream
+# # git push all branches, if successful set the remote/upstream branches
+# git -C "${CHARTDIR}" push --all --set-upstream --atomic upstream
+
+# git push master, if successful set the remote/upstream branches
+git -C "${CHARTDIR}" push --set-upstream --atomic upstream main
 
 echo "Synced chart: ${CHARTDIR}"
