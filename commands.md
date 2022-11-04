@@ -6,6 +6,7 @@ Scratch Mode:
 Upstream Directory Mode:
 - chart UUID generated on client
 - client-side verification of policy
+- runs potentially untrusted code on client (pre-receive hooks)
 - multi-user
 
 Upstream Server Mode:
