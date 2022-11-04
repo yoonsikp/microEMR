@@ -1,8 +1,22 @@
-Strict mode:
-- no standalone mode
-- no chart imports allowed
-- no backdated commits, i.e. no git commit access, i.e. all git commands run on server, i.e. no .git write access
+Scratch Mode:
+- chart UUID generated on client
+- client-side verification of policy
+- single-user
 
+Upstream Directory Mode:
+- chart UUID generated on client
+- client-side verification of policy
+- multi-user
+
+Upstream Server Mode:
+- chart UUID generated on server
+- no .git write access
+- server-side verification of policy
+- git commands run on server
+- multi-user
+
+
+### OUTDATED ###
 nchart _new_uuid
 A
 - uuid/conflict resolutions
