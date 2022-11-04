@@ -23,9 +23,9 @@ if expr "${NCHART_UPSTREAM}" : ".*://" > /dev/null; then
     else
         echo "non-ssh protocols not currently supported"; exit 1
     fi
-# scp-like syntax is also valid
+# scp-like syntax is not accepted
 elif expr "${NCHART_UPSTREAM}" : "[^/]*:" > /dev/null; then
-    export NCHART_USE_SSH="1"
+    echo "ssh protocol must use ssh:// syntax"; exit 1
 fi
 
 export NCHART_SSH_PRIVATE_KEY="${NCHART_CONF}/id_rsa"
