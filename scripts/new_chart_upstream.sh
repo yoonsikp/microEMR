@@ -16,11 +16,12 @@ CHARTDIR="${NCHART_UPSTREAM}/${UUID_UPPER}/${UUID_LOWER}.git"
 mkdir "${CHARTDIR}"
 
 # initialize chart with git template
-git init --initial-branch main --bare --template=./policies/default/git/upstream "${CHARTDIR}"
+# git init --initial-branch main --bare --template=./policies/default/git/upstream "${CHARTDIR}"
 
-# enforce file integrity
+git init --initial-branch main --bare "${CHARTDIR}"
+
+# enforce file integrity (no need for receive or fetch)
 git -C "${CHARTDIR}" config transfer.fsckObjects true
-git -C "${CHARTDIR}" config receive.fsckobjects true
 
 # prevent deleting main branch
 git -C "${CHARTDIR}" config receive.denyDeletes true

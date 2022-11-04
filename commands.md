@@ -11,7 +11,7 @@ Upstream Directory Mode:
 Upstream Server Mode:
 - chart UUID generated on server
 - no .git write access
-- server-side verification of policy
+- both client and server-side verification of policy
 - git commands run on server
 - multi-user
 
