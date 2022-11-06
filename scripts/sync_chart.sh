@@ -3,7 +3,7 @@
 set -euf
 
 # UUID validation
-UUID="${@}"; scripts/validate_uuid.sh "${UUID}"
+UUID="${*}"; scripts/validate_uuid.sh "${UUID}"
 CHARTDIR="${NCHART_SCRATCH}/${UUID}"
 
 # check if upstream exists
