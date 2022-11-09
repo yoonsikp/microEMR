@@ -7,23 +7,24 @@ trap 'exit' INT
 
 # get name of current top level directory
 TOP_DIR="$(basename "$PWD")"
-if scripts/validate_uuid.sh "${TOP_DIR}"; then
-	UUID_FROM_DIR="${TOP_DIR}"
-fi
 
 # switch to script directory
 cd "$(dirname "$0")"
 
+if scripts/validate_uuid.sh "${TOP_DIR}"; then
+	UUID_FROM_DIR="${TOP_DIR}"
+fi
+
 USAGE_HELP="Usage: nchart { COMMAND }"
 
 # check if arguments are empty
-if [ -z "${*+x}" ]; then
+if [ "${*:+x}" != "x" ]; then
     echo "${USAGE_HELP}"; exit 1
 fi
 
 # remove subcommand from arguments through shift
 NCHART_COMMAND="${1}"; shift
-if [ -z "${*+x}" ]; then
+if [ "${*:+x}" != "x" ]; then
     NCHART_ARGS=""
 else
 	NCHART_ARGS="${*}"
