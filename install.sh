@@ -4,7 +4,7 @@ set -euf
 
 # set default nchart configuration directory
 if [ -z "${NCHART_CONF+x}" ]; then
-    export NCHART_CONF="${HOME}/.nchart"
+    export NCHART_CONF="${HOME}/.nchart/"
 fi
 
 echo "${NCHART_CONF}"
