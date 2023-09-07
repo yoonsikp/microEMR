@@ -28,8 +28,8 @@ elif expr "${NCHART_UPSTREAM}" : "[^/]*:" > /dev/null; then
     echo "ssh protocol must use ssh:// syntax"; exit 1
 fi
 
-export NCHART_SSH_PRIVATE_KEY="${NCHART_CONF}/id_rsa"
-export NCHART_SSH_PUBLIC_KEY="${NCHART_CONF}/id_rsa.pub"
+export NCHART_SSH_PRIVATE_KEY="/Users/yoonsik/.ssh/id_rsa"
+export NCHART_SSH_PUBLIC_KEY="/Users/yoonsik/.ssh/id_rsa.pub"
 
 if [ "${NCHART_USE_SSH}" = 1 ]; then
     # start ssh-agent

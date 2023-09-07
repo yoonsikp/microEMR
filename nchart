@@ -59,9 +59,6 @@ case "${NCHART_COMMAND}" in
     touch )
         ./scripts/touch_chart.sh "${NCHART_ARGS}"
         ;;
-    commit )
-        ./scripts/commit_chart.sh "${NCHART_ARGS}"
-        ;;
     sync )
         ./scripts/commit_chart.sh "${NCHART_ARGS}"
         ./scripts/sync_chart.sh "${NCHART_ARGS}"

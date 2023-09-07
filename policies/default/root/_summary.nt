@@ -10,7 +10,11 @@ past_surg_hx:
 #  - appendectomy
 allergy_sens:
 #  - codeine (itching)
-medications:
+precriptions:
 #  - 5mg amlodipine OD 30 days, 3 refills
 social_hx: 
+#  - smoking
 family_hx: 
+#  - colon cancer (father)
+preventive:
+#  - Pap test negative (2023)
